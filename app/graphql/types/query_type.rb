@@ -1,5 +1,5 @@
 Types::QueryType = GraphQL::ObjectType.define do
-  name "Query"
+  name 'Query'
   # Add root-level fields here.
   # They will be entry points for queries on your schema.
 
@@ -14,7 +14,7 @@ Types::QueryType = GraphQL::ObjectType.define do
 
   field :articles, types[Types::ArticleType] do
     description 'Find all Articles'
-    resolve -> () {
+    resolve -> (obj, args, ctx) {
       Article.all
     }
   end
