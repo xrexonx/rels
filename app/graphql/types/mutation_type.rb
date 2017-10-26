@@ -7,18 +7,13 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :title, types.String
 
     resolve -> (obj, args, c) {
-      puts obj.errors.full_messages
-      @post = Article.find(args[:id])
-      puts @post.inspect
-      # post = post.title(args[:title])
-      # post
+      Article.update(args[:id], :title => args[:title])
     }
   end
 
   field :addArticle, Types::ArticleType do
     description 'Add Article'
     argument :article, Types::PostInputType
-
     resolve -> (obj, args, c) {
       post = Article.new(args['article'].to_h)
       post.save
