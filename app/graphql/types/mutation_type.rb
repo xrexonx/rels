@@ -5,6 +5,7 @@ Types::MutationType = GraphQL::ObjectType.define do
     description 'Edit article'
     argument :id, !types.Int
     argument :title, types.String
+    # more argument here..
 
     resolve -> (obj, args, c) {
       Article.update(args[:id], :title => args[:title])
