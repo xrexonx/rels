@@ -114,3 +114,7 @@ query {
   }
 }
 ```
+
+### Guides
+* http://guides.rubyonrails.org/getting_started.html
+* http://graphql-ruby.org/getting_started
